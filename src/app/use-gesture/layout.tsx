@@ -4,7 +4,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "use gesture",
-  description: "어렵지만 더 강력하다.",
+  description: "어렵지만 더더욱 강력한 라이브러리",
 };
 
 export default function Layout({
