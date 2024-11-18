@@ -1,4 +1,4 @@
-import RelativeList from "@/components/common/RelativeList";
+import RelativeList from "@/components/react-zoom-pan-pinch/RelativeList";
 import { useState } from "react";
 
 const Depth2Area = () => {
