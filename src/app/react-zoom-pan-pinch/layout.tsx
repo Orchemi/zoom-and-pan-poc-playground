@@ -4,7 +4,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "react zoom pan pinch",
-  description: "쉽고 강력하다",
+  description: "심플하고 강력한 라이브러리",
 };
 
 export default function Layout({
