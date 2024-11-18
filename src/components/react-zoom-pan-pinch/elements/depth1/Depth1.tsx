@@ -1,5 +1,5 @@
-import Depth1Button from "@/components/elements/depth1/Depth1Button";
-import Depth2Area from "@/components/elements/depth2/Depth2Area";
+import Depth1Button from "@/components/react-zoom-pan-pinch/elements/depth1/Depth1Button";
+import Depth2Area from "@/components/react-zoom-pan-pinch/elements/depth2/Depth2Area";
 import { useHash } from "@/shared/route/useHash";
 import { memo } from "react";
 

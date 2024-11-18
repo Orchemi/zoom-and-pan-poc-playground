@@ -1,6 +1,6 @@
 "use client";
 
-import Depth1 from "@/components/elements/depth1/Depth1";
+import Depth1 from "@/components/react-zoom-pan-pinch/elements/depth1/Depth1";
 import { getId } from "@/shared/unique/createId";
 import {
   TransformComponent,
