@@ -1,9 +1,11 @@
 import { ComponentProps } from "react";
 import { twMerge } from "tailwind-merge";
 
-type Props = ComponentProps<"main">;
-
-const FullPage = ({ children, className, ...mainProps }: Props) => {
+const FullPage = ({
+  children,
+  className,
+  ...mainProps
+}: ComponentProps<"main">) => {
   return (
     <main
       className={twMerge(
