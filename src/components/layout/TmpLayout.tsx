@@ -1,4 +1,5 @@
 import FullPage from "@/components/common/FullPage";
+import Link from "next/link";
 
 const TmpLayout = ({
   children,
@@ -9,9 +10,28 @@ const TmpLayout = ({
     <FullPage>
       <header
         className={
-          "absolute top-0 h-[56px] w-full border border-b-gray-200 bg-white shadow-sm"
+          "absolute top-0 flex h-[56px] w-full items-center gap-10 border border-b-gray-200 bg-white px-10 shadow-sm"
         }
-      ></header>
+      >
+        <Link
+          href="/"
+          className={"rounded-lg px-4 py-2 transition-colors hover:bg-gray-100"}
+        >
+          Home
+        </Link>
+        <Link
+          href="/react-zoom-pan-pinch"
+          className={"rounded-lg px-4 py-2 transition-colors hover:bg-gray-100"}
+        >
+          react-zoom-pan-pinch
+        </Link>
+        <Link
+          href="/use-gesture"
+          className={"rounded-lg px-4 py-2 transition-colors hover:bg-gray-100"}
+        >
+          @use-gesture/react
+        </Link>
+      </header>
       <div className={"flex w-full"}>
         <aside
           className={

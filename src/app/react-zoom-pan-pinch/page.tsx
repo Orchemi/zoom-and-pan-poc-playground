@@ -11,11 +11,7 @@ import { twMerge } from "tailwind-merge";
 
 const CurrentScale = () => {
   return useTransformComponent(({ state }) => {
-    return (
-      <div className={"fixed left-0 top-0 z-10"}>
-        Current Scale: {state.scale}
-      </div>
-    );
+    return <div className={""}>Current Scale: {state.scale}</div>;
   });
 };
 
