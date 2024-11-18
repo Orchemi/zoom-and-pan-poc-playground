@@ -8,7 +8,7 @@ export const useHash = () => {
     return hash;
   };
 
-  const [hash, setHash] = useState(deleteMark(window.location.hash));
+  const [hash, setHash] = useState("");
 
   useEffect(() => {
     const onHashChange = () => {
@@ -23,11 +23,19 @@ export const useHash = () => {
   };
 
   const set = (newHash: string) => {
-    window.location.hash = newHash;
+    if (window) {
+      window.location.hash = newHash;
+    } else {
+      throw new Error("window is not defined");
+    }
   };
 
   const clear = () => {
-    window.location.hash = "";
+    if (window) {
+      window.location.hash = "";
+    } else {
+      throw new Error("window is not defined");
+    }
   };
 
   return { get, set, clear };
