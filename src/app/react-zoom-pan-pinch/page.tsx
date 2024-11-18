@@ -32,7 +32,7 @@ export default function Page() {
     >
       <div className={twMerge("h-full w-full overflow-hidden")}>
         <TransformWrapper
-          initialScale={0.5}
+          initialScale={1}
           minScale={0.2}
           maxScale={4}
           panning={{
