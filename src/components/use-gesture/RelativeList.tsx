@@ -4,15 +4,15 @@ import { twMerge } from "tailwind-merge";
 
 // ScaleInvariantWrapper 컴포넌트
 const ScaleInvariantWrapper = ({ children }: { children: React.ReactNode }) => {
-  const { scale } = useContext(TransformContext);
-  const inverseScale = 1 / scale;
+  const { transform } = useContext(TransformContext);
+  const inverseScale = 1 / transform.scale;
 
   return <div style={{ transform: `scale(${inverseScale})` }}>{children}</div>;
 };
 
 const RelativeList = () => {
-  const { scale } = useContext(TransformContext);
-  const topPosition = 20 * scale;
+  const { transform } = useContext(TransformContext);
+  const topPosition = 20 * transform.scale;
 
   return (
     <ScaleInvariantWrapper>
