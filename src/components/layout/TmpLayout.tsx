@@ -1,11 +1,14 @@
 import FullPage from "@/components/common/FullPage";
 import Link from "next/link";
+import { PropsWithChildren } from "react";
+import { twMerge } from "tailwind-merge";
 
-const TmpLayout = ({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) => {
+type Page = "home" | "react-zoom-pan-pinch" | "use-gesture";
+interface Props {
+  currentPage: Page;
+}
+
+const TmpLayout = ({ children, currentPage }: PropsWithChildren<Props>) => {
   return (
     <FullPage>
       <header
@@ -15,19 +18,34 @@ const TmpLayout = ({
       >
         <Link
           href="/"
-          className={"rounded-lg px-4 py-2 transition-colors hover:bg-gray-100"}
+          className={twMerge(
+            "rounded-lg px-4 py-2 transition-colors",
+            currentPage === "home"
+              ? "bg-blue-100 hover:bg-blue-50"
+              : "bg-transparent hover:bg-gray-100",
+          )}
         >
           Home
         </Link>
         <Link
           href="/react-zoom-pan-pinch"
-          className={"rounded-lg px-4 py-2 transition-colors hover:bg-gray-100"}
+          className={twMerge(
+            "rounded-lg px-4 py-2 transition-colors",
+            currentPage === "react-zoom-pan-pinch"
+              ? "bg-blue-100 hover:bg-blue-50"
+              : "bg-transparent hover:bg-gray-100",
+          )}
         >
           react-zoom-pan-pinch
         </Link>
         <Link
           href="/use-gesture"
-          className={"rounded-lg px-4 py-2 transition-colors hover:bg-gray-100"}
+          className={twMerge(
+            "rounded-lg px-4 py-2 transition-colors",
+            currentPage === "use-gesture"
+              ? "bg-blue-100 hover:bg-blue-50"
+              : "bg-transparent hover:bg-gray-100",
+          )}
         >
           @use-gesture/react
         </Link>

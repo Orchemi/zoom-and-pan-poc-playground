@@ -12,5 +12,5 @@ export default function Layout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return <TmpLayout>{children}</TmpLayout>;
+  return <TmpLayout currentPage={"react-zoom-pan-pinch"}>{children}</TmpLayout>;
 }
