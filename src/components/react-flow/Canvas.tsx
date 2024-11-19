@@ -33,11 +33,16 @@ const CanvasInner = () => {
   );
 
   const { wheelProps } = useWheelAction({
-    wheelActionLikeFigma: true,
+    wheelActionLikeFigma: false,
   });
 
   return (
-    <div style={{ width: "calc(100vw - 230px)", height: "calc(100vh - 56px)" }}>
+    <div
+      style={{
+        width: "calc(100vw - 230px)",
+        height: "calc(100vh - 56px)",
+      }}
+    >
       <ReactFlow
         nodes={nodes}
         edges={edges}
@@ -60,11 +65,13 @@ const CanvasInner = () => {
         position={"bottom-center"}
       />
       <MiniMap
+        style={{ left: "unset" }}
+        position={"bottom-left"}
         bgColor={"white"}
         nodeColor={"gray"}
-        maskColor={"lightgray"}
-        zoomable={true}
-        pannable={true}
+        maskColor={"rgba(0,0,0,0.2)"}
+        zoomable
+        pannable
       />
       <CanvasBackground />
     </div>
