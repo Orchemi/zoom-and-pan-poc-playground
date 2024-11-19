@@ -39,6 +39,14 @@ const CanvasInner = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        deleteKeyCode={["Backspace", "Delete"]}
+        fitView
+        fitViewOptions={{
+          padding: 20,
+          includeHiddenNodes: true,
+        }}
+        minZoom={0.1}
+        maxZoom={10}
       />
       <Controls
         style={{ background: "white" }}
