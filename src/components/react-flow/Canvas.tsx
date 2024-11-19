@@ -5,8 +5,11 @@ import useWheelAction from "@/components/react-flow/useWheelAction";
 import {
   addEdge,
   Connection,
+  ConnectionLineType,
   Controls,
+  Edge,
   MiniMap,
+  Node,
   ReactFlow,
   ReactFlowProvider,
   useEdgesState,
@@ -17,11 +20,39 @@ import "@xyflow/react/dist/style.css";
 
 import { useCallback } from "react";
 
-const initialNodes = [
-  { id: "1", position: { x: 0, y: 0 }, data: { label: "1" } },
-  { id: "2", position: { x: 0, y: 100 }, data: { label: "2" } },
+const initialNodes: Node[] = [
+  {
+    id: "parent1",
+    position: { x: 0, y: 0 },
+    style: { width: 400, height: 200 },
+    type: "group",
+    data: {},
+  },
+  {
+    id: "child1",
+    position: { x: 10, y: 10 },
+    data: { label: "Child1" },
+    type: "",
+    parentId: "parent1",
+    extent: "parent",
+  },
+  {
+    id: "child2",
+    position: { x: 10, y: 100 },
+    data: { label: "Child2" },
+    type: "",
+    extent: "parent",
+    parentId: "parent1",
+  },
 ];
-const initialEdges = [{ id: "e1-2", source: "1", target: "2" }];
+const initialEdges: Edge[] = [
+  {
+    id: "e1-2",
+    source: "child1",
+    target: "child2",
+    type: ConnectionLineType.SmoothStep,
+  },
+];
 
 const CanvasInner = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
