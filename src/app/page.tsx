@@ -25,6 +25,14 @@ export default function Home() {
         >
           <button className={"text-white"}>@use-gesture/react</button>
         </Link>
+        <Link
+          href={"/react-flow"}
+          className={
+            "flex w-full items-center justify-center rounded-md bg-red-500 p-4 transition-all hover:opacity-80"
+          }
+        >
+          <button className={"text-white"}>react-flow</button>
+        </Link>
       </section>
     </FullPage>
   );
