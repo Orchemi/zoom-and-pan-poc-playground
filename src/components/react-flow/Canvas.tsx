@@ -1,15 +1,15 @@
 "use client";
 
 import CanvasBackground from "@/components/react-flow/CanvasBackground";
+import { initialEdges } from "@/components/react-flow/config/edge.config";
+import { initialNodes } from "@/components/react-flow/config/node.config";
+import DevTools from "@/components/react-flow/devtools/Devtools";
 import useWheelAction from "@/components/react-flow/useWheelAction";
 import {
   addEdge,
   Connection,
-  ConnectionLineType,
   Controls,
-  Edge,
   MiniMap,
-  Node,
   ReactFlow,
   ReactFlowProvider,
   useEdgesState,
@@ -19,40 +19,6 @@ import {
 import "@xyflow/react/dist/style.css";
 
 import { useCallback } from "react";
-
-const initialNodes: Node[] = [
-  {
-    id: "parent1",
-    position: { x: 0, y: 0 },
-    style: { width: 400, height: 200 },
-    type: "group",
-    data: {},
-  },
-  {
-    id: "child1",
-    position: { x: 10, y: 10 },
-    data: { label: "Child1" },
-    type: "",
-    parentId: "parent1",
-    extent: "parent",
-  },
-  {
-    id: "child2",
-    position: { x: 10, y: 100 },
-    data: { label: "Child2" },
-    type: "",
-    extent: "parent",
-    parentId: "parent1",
-  },
-];
-const initialEdges: Edge[] = [
-  {
-    id: "e1-2",
-    source: "child1",
-    target: "child2",
-    type: ConnectionLineType.SmoothStep,
-  },
-];
 
 const CanvasInner = () => {
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
@@ -70,6 +36,7 @@ const CanvasInner = () => {
   return (
     <div
       style={{
+        position: "relative",
         width: "calc(100vw - 230px)",
         height: "calc(100vh - 56px)",
       }}
@@ -104,6 +71,7 @@ const CanvasInner = () => {
         zoomable
         pannable
       />
+      <DevTools />
       <CanvasBackground />
     </div>
   );
