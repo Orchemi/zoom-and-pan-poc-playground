@@ -64,7 +64,7 @@ const TmpLayout = ({ children, currentPage }: PropsWithChildren<Props>) => {
       <div className={"flex w-full"}>
         <aside
           className={
-            "left-0 h-[100vh] w-[230px] shrink-0 border border-r-gray-200"
+            "left-0 h-[100vh] w-[230px] shrink-0 border border-r-gray-200 bg-white"
           }
         ></aside>
         <main
