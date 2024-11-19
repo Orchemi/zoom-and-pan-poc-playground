@@ -1,6 +1,7 @@
 "use client";
 
 import CanvasBackground from "@/components/react-flow/CanvasBackground";
+import useWheelAction from "@/components/react-flow/useWheelAction";
 import {
   addEdge,
   Connection,
@@ -31,6 +32,10 @@ const CanvasInner = () => {
     [setEdges],
   );
 
+  const { wheelProps } = useWheelAction({
+    wheelActionLikeFigma: true,
+  });
+
   return (
     <div style={{ width: "calc(100vw - 230px)", height: "calc(100vh - 56px)" }}>
       <ReactFlow
@@ -47,13 +52,20 @@ const CanvasInner = () => {
         }}
         minZoom={0.1}
         maxZoom={10}
+        {...wheelProps}
       />
       <Controls
         style={{ background: "white" }}
         orientation={"horizontal"}
         position={"bottom-center"}
       />
-      <MiniMap bgColor={"white"} nodeColor={"gray"} maskColor={"lightgray"} />
+      <MiniMap
+        bgColor={"white"}
+        nodeColor={"gray"}
+        maskColor={"lightgray"}
+        zoomable={true}
+        pannable={true}
+      />
       <CanvasBackground />
     </div>
   );
