@@ -5,6 +5,7 @@ import CanvasBackground from "@/components/react-flow/CanvasBackground";
 import { initialEdges } from "@/components/react-flow/config/edge.config";
 import { initialNodes } from "@/components/react-flow/config/node.config";
 import DevTools from "@/components/react-flow/devtools/Devtools";
+import { FocusTarget } from "@/components/react-flow/nodes/FocusTarget";
 import useWheelAction from "@/components/react-flow/useWheelAction";
 import {
   addEdge,
@@ -30,10 +31,15 @@ const CanvasInner = () => {
   const [nodes, setNodes] = useNodesState(initialNodes);
   const [edges, setEdges] = useEdgesState(initialEdges);
 
+  const nodeTypes = {
+    ["focus-target"]: FocusTarget,
+  };
+
   const onNodesChange: OnNodesChange = useCallback(
     (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
     [setNodes],
   );
+
   const onEdgesChange: OnEdgesChange = useCallback(
     (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
     [setEdges],
@@ -60,6 +66,7 @@ const CanvasInner = () => {
       <ReactFlow
         nodes={nodes}
         edges={edges}
+        nodeTypes={nodeTypes}
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
@@ -67,11 +74,7 @@ const CanvasInner = () => {
         minZoom={0.2}
         maxZoom={10}
         fitView
-        fitViewOptions={{
-          padding: 2,
-          duration: 0,
-          includeHiddenNodes: true,
-        }}
+        fitViewOptions={{ nodes: [{ id: "focus-target-1" }], padding: 2 }}
         {...boundaryProps}
         {...wheelProps}
       />
