@@ -1,4 +1,4 @@
-import { FocusTargetNode } from "@/components/react-flow/nodes/FocusTarget/FocusTarget";
+import { FocusTargetNode } from "@/components/react-flow/nodes/FocusTarget";
 import { Node } from "@xyflow/react";
 
 const focusTestNodes: (FocusTargetNode | Node)[] = [

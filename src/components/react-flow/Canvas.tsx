@@ -5,7 +5,7 @@ import CanvasBackground from "@/components/react-flow/CanvasBackground";
 import { initialEdges } from "@/components/react-flow/config/edge.config";
 import { initialNodes } from "@/components/react-flow/config/node.config";
 import DevTools from "@/components/react-flow/devtools/Devtools";
-import { FocusTarget } from "@/components/react-flow/nodes/FocusTarget/FocusTarget";
+import { FocusTarget } from "@/components/react-flow/nodes/FocusTarget";
 import useWheelAction from "@/components/react-flow/useWheelAction";
 import {
   addEdge,
