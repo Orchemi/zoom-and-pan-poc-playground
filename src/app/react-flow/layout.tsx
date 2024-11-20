@@ -4,7 +4,7 @@ import React from "react";
 
 export const metadata: Metadata = {
   title: "react flow",
-  description: "node-edge 기반의 완성형 에디터 라이브러리",
+  description: "node-edge 기반의 강력한 에디터 라이브러리",
 };
 
 export default function Layout({
