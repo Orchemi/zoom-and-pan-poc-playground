@@ -24,4 +24,10 @@ export const initialNodes: Node[] = [
     extent: "parent",
     parentId: "parent1",
   },
+  {
+    id: "independent1",
+    position: { x: 500, y: 0 },
+    data: { label: "Independent1" },
+    type: "",
+  },
 ];
