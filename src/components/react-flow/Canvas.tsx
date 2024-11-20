@@ -7,9 +7,13 @@ import DevTools from "@/components/react-flow/devtools/Devtools";
 import useWheelAction from "@/components/react-flow/useWheelAction";
 import {
   addEdge,
+  applyEdgeChanges,
+  applyNodeChanges,
   Connection,
   Controls,
   MiniMap,
+  OnEdgesChange,
+  OnNodesChange,
   ReactFlow,
   ReactFlowProvider,
   useEdgesState,
@@ -21,8 +25,17 @@ import "@xyflow/react/dist/style.css";
 import { useCallback } from "react";
 
 const CanvasInner = () => {
-  const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
-  const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
+  const [nodes, setNodes] = useNodesState(initialNodes);
+  const [edges, setEdges] = useEdgesState(initialEdges);
+
+  const onNodesChange: OnNodesChange = useCallback(
+    (changes) => setNodes((nds) => applyNodeChanges(changes, nds)),
+    [setNodes],
+  );
+  const onEdgesChange: OnEdgesChange = useCallback(
+    (changes) => setEdges((eds) => applyEdgeChanges(changes, eds)),
+    [setEdges],
+  );
 
   const onConnect = useCallback(
     (params: Connection) => setEdges((eds) => addEdge(params, eds)),
