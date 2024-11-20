@@ -7,7 +7,7 @@ import {
   type SetStateAction,
 } from "react";
 
-import "./DevTools.css";
+import "./devTools.css";
 
 import ChangeLogger from "./ChangeLogger";
 import NodeInspector from "./NodeInspector";
