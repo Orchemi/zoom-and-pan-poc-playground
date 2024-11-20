@@ -1,5 +1,6 @@
 "use client";
 
+import { boundaryProps } from "@/components/react-flow/boundary.constant";
 import CanvasBackground from "@/components/react-flow/CanvasBackground";
 import { initialEdges } from "@/components/react-flow/config/edge.config";
 import { initialNodes } from "@/components/react-flow/config/node.config";
@@ -65,11 +66,13 @@ const CanvasInner = () => {
         deleteKeyCode={["Backspace", "Delete"]}
         fitView
         fitViewOptions={{
-          padding: 20,
+          minZoom: 0.1,
+          maxZoom: 10,
+          padding: 2,
+          duration: 0,
           includeHiddenNodes: true,
         }}
-        minZoom={0.1}
-        maxZoom={10}
+        {...boundaryProps}
         {...wheelProps}
       />
       <Controls

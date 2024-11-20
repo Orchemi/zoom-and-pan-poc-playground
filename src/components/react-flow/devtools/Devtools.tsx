@@ -14,9 +14,9 @@ import NodeInspector from "./NodeInspector";
 import ViewportLogger from "./ViewportLogger";
 
 export default function DevTools() {
-  const [nodeInspectorActive, setNodeInspectorActive] = useState(true);
-  const [changeLoggerActive, setChangeLoggerActive] = useState(true);
-  const [viewportLoggerActive, setViewportLoggerActive] = useState(true);
+  const [nodeInspectorActive, setNodeInspectorActive] = useState(false);
+  const [changeLoggerActive, setChangeLoggerActive] = useState(false);
+  const [viewportLoggerActive, setViewportLoggerActive] = useState(false);
 
   return (
     <div className="react-flow__devtools">
