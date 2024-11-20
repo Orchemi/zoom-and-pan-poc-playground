@@ -14,6 +14,7 @@ import {
   MiniMap,
   OnEdgesChange,
   OnNodesChange,
+  Panel,
   ReactFlow,
   ReactFlowProvider,
   useEdgesState,
@@ -22,7 +23,7 @@ import {
 
 import "@xyflow/react/dist/style.css";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 
 const CanvasInner = () => {
   const [nodes, setNodes] = useNodesState(initialNodes);
@@ -42,8 +43,9 @@ const CanvasInner = () => {
     [setEdges],
   );
 
+  const [likeFigma, setLikeFigma] = useState(false);
   const { wheelProps } = useWheelAction({
-    wheelActionLikeFigma: false,
+    wheelActionLikeFigma: likeFigma,
   });
 
   return (
@@ -85,6 +87,20 @@ const CanvasInner = () => {
         pannable
       />
       <DevTools />
+      <div>
+        <Panel position={"top-center"}>
+          <button
+            className={
+              "rounded-md bg-blue-500 px-3 py-1 text-[14px] text-white"
+            }
+            onClick={() => {
+              setLikeFigma((prev) => !prev);
+            }}
+          >
+            {likeFigma ? "Figma Mode On" : "Figma Mode Off"}
+          </button>
+        </Panel>
+      </div>
       <CanvasBackground />
     </div>
   );
