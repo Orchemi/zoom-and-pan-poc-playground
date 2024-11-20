@@ -3,7 +3,7 @@ import Link from "next/link";
 import { PropsWithChildren } from "react";
 import { twMerge } from "tailwind-merge";
 
-type Page = "home" | "react-zoom-pan-pinch" | "use-gesture";
+type Page = "home" | "react-zoom-pan-pinch" | "use-gesture" | "react-flow";
 interface Props {
   currentPage: Page;
 }
@@ -49,11 +49,22 @@ const TmpLayout = ({ children, currentPage }: PropsWithChildren<Props>) => {
         >
           @use-gesture/react
         </Link>
+        <Link
+          href="/react-flow"
+          className={twMerge(
+            "rounded-lg px-4 py-2 transition-colors",
+            currentPage === "react-flow"
+              ? "bg-blue-100 hover:bg-blue-50"
+              : "bg-transparent hover:bg-gray-100",
+          )}
+        >
+          react-flow
+        </Link>
       </header>
       <div className={"flex w-full"}>
         <aside
           className={
-            "left-0 h-[100vh] w-[230px] shrink-0 border border-r-gray-200"
+            "left-0 h-[100vh] w-[230px] shrink-0 border border-r-gray-200 bg-white"
           }
         ></aside>
         <main
