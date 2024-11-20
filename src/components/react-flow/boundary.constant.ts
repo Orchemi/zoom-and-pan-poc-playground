@@ -1,8 +1,8 @@
 import { ReactFlowProps } from "@xyflow/react";
 
 // 작업 영역의 크기 정의
-const CANVAS_WIDTH = 4000;
-const CANVAS_HEIGHT = 4000;
+const CANVAS_WIDTH = 10000;
+const CANVAS_HEIGHT = 10000;
 
 // 중앙에서 시작하도록 초기 위치 계산
 const INITIAL_X = -CANVAS_WIDTH / 2;
