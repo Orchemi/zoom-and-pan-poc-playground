@@ -64,10 +64,10 @@ const CanvasInner = () => {
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
         deleteKeyCode={["Backspace", "Delete"]}
+        minZoom={0.2}
+        maxZoom={10}
         fitView
         fitViewOptions={{
-          minZoom: 0.1,
-          maxZoom: 10,
           padding: 2,
           duration: 0,
           includeHiddenNodes: true,
