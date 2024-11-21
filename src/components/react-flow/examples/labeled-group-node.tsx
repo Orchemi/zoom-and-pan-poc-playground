@@ -1,6 +1,6 @@
 // https://reactflow.dev/components/nodes/labeled-group-node
 
-import { BaseNode } from "@/components/base-node";
+import { BaseNode } from "@/components/react-flow/examples/base-node";
 import { Node, NodeProps } from "@xyflow/react";
 
 type LabeledGroupNode = Node<{
@@ -17,7 +17,7 @@ export function LabeledGroupNode({
       className="h-full overflow-hidden rounded-sm bg-white bg-opacity-50 p-0"
     >
       {data.label && (
-        <div className="bg-secondary text-card-foreground w-fit rounded-br-sm bg-gray-200 p-2 text-xs">
+        <div className="w-fit rounded-br-sm bg-gray-200 bg-secondary p-2 text-xs text-card-foreground">
           {data.label}
         </div>
       )}
