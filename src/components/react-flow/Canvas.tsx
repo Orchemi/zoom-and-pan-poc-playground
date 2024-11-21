@@ -2,9 +2,9 @@
 
 import { boundaryProps } from "@/components/react-flow/boundary.constant";
 import CanvasBackground from "@/components/react-flow/CanvasBackground";
-import { initialEdges } from "@/components/react-flow/config/edge.config";
-import { initialNodes } from "@/components/react-flow/config/node.config";
 import DevTools from "@/components/react-flow/devtools/Devtools";
+import { initialEdges } from "@/components/react-flow/edges/edge.config";
+import { initialNodes } from "@/components/react-flow/nodes/node.config";
 import { nodeTypes } from "@/components/react-flow/nodes/node.type";
 import useWheelAction from "@/components/react-flow/useWheelAction";
 import {

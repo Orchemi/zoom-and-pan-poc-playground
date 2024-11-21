@@ -1,6 +1,6 @@
 import { FocusTargetNode } from "@/components/react-flow/nodes/FocusTarget";
 import { Node } from "@xyflow/react";
-import { FrameNode } from "./../nodes/Frame";
+import { FrameNode } from "./Frame";
 
 const layerTestNodes: (Node | FrameNode)[] = [
   {
