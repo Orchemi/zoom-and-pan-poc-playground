@@ -66,11 +66,12 @@ const CanvasInner = () => {
         onNodesChange={onNodesChange}
         onEdgesChange={onEdgesChange}
         onConnect={onConnect}
+        zoomOnDoubleClick={false}
         deleteKeyCode={["Backspace", "Delete"]}
         minZoom={0.2}
         maxZoom={10}
         fitView
-        fitViewOptions={{ nodes: [{ id: "focus-target-1" }], padding: 2 }}
+        fitViewOptions={{ nodes: [{ id: "layer-test-frame" }], padding: 0.2 }}
         {...boundaryProps}
         {...wheelProps}
         proOptions={{ hideAttribution: true }}

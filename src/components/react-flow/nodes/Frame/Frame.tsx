@@ -6,11 +6,12 @@ export type FrameNode = Node<FrameData, "frame">;
 
 export type FrameData = {
   source: string;
+  style?: CSSProperties;
 };
 
 export const FRAME_WIDTH = 1000;
 export const FRAME_HEIGHT = 1000;
-const style = {
+const defaultStyle = {
   width: FRAME_WIDTH,
   height: FRAME_HEIGHT,
   background: "white",
@@ -23,7 +24,10 @@ export function Frame({ data, selected }: NodeProps<FrameNode>) {
         "frame flex flex-col items-center justify-center gap-2 rounded-xl border-2 border-black",
         selected ? "border-red-400 shadow-lg" : "",
       )}
-      style={style}
+      style={{
+        ...defaultStyle,
+        ...data.style,
+      }}
     >
       {data.source}
     </div>

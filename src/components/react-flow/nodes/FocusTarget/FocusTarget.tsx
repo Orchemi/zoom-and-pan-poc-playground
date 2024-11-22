@@ -1,5 +1,6 @@
 import { Node, NodeProps, useReactFlow } from "@xyflow/react";
 import { CSSProperties, useCallback } from "react";
+import { twMerge } from "tailwind-merge";
 
 export const FOCUS_TARGET_WIDTH = 100;
 export const FOCUS_TARGET_HEIGHT = 100;
@@ -33,26 +34,30 @@ export function FocusTarget({ data }: NodeProps<FocusTargetNode>) {
     >
       {data.source}
       <div className={"flex gap-2"}>
-        {data.prev && (
-          <button
-            className={
-              "flex h-6 w-6 items-center justify-center rounded-full border border-black bg-white"
-            }
-            onClick={() => moveToFocusTarget(data.prev!)}
-          >
-            ←
-          </button>
-        )}
-        {data.next && (
-          <button
-            className={
-              "flex h-6 w-6 items-center justify-center rounded-full border border-black bg-white"
-            }
-            onClick={() => moveToFocusTarget(data.next!)}
-          >
-            →
-          </button>
-        )}
+        <button
+          disabled={!data.prev}
+          className={twMerge(
+            "flex h-6 w-6 items-center justify-center rounded-full border border-black bg-white",
+            data.prev
+              ? "cursor-pointer"
+              : "border-gray-300 bg-gray-50 text-gray-300",
+          )}
+          onClick={() => moveToFocusTarget(data.prev!)}
+        >
+          ←
+        </button>
+        <button
+          disabled={!data.next}
+          className={twMerge(
+            "flex h-6 w-6 items-center justify-center rounded-full border border-black bg-white",
+            data.next
+              ? "cursor-pointer"
+              : "border-gray-300 bg-gray-50 text-gray-300",
+          )}
+          onClick={() => moveToFocusTarget(data.next!)}
+        >
+          →
+        </button>
       </div>
     </div>
   );
