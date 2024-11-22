@@ -1,26 +1,53 @@
+import { processMockData1 } from "@/components/react-flow/components/process/process.mock";
+import ProcessDetail from "@/components/react-flow/components/process/ProcessDetail/ProcessDetail";
+import ProcessHeader from "@/components/react-flow/components/process/ProcessHeader";
+import ProcessRecruitList from "@/components/react-flow/components/process/ProcessRecruitList";
 import { FocusTargetNode } from "@/components/react-flow/nodes/FocusTarget/FocusTarget";
 import { CUSTOM_NODE } from "@/components/react-flow/nodes/node.type";
 import { createNode } from "@/components/react-flow/nodes/node.util";
 import { Node } from "@xyflow/react";
-import { FrameNode } from "./Frame/Frame";
 
-const layerTestNodes: (Node | FrameNode)[] = [
+const mainNodes: Node[] = [
   createNode[CUSTOM_NODE.FRAME]({
-    id: "layer-test-frame",
+    id: "main-frame",
     position: { x: -2000, y: 1000 },
     data: {
-      style: { width: 2000, height: 1000 },
+      style: { width: 2000, height: 1500 },
     },
   }),
   createNode[CUSTOM_NODE.CONTAINER]({
-    id: "layer-test-container-1",
-    position: { x: 100, y: 100 },
+    id: "전형1-container",
+    position: { x: 100, y: 40 },
+    parentId: "main-frame",
+  }),
+  createNode[CUSTOM_NODE.CONTAINER]({
+    id: "전형1-header",
+    position: { x: 0, y: 0 },
+    parentId: "전형1-container",
     data: {
-      label: "Container 1",
-      children: "hello",
+      style: { width: 318 },
+      children: <ProcessHeader />,
     },
-    parentId: "layer-test-frame",
-    extent: "parent",
+  }),
+  createNode[CUSTOM_NODE.CONTAINER]({
+    id: "전형1-공고목록",
+    position: { x: 0, y: 87 },
+    parentId: "전형1-container",
+    data: {
+      style: { width: 318 },
+      children: (
+        <ProcessRecruitList recruitList={processMockData1.recruitList} />
+      ),
+    },
+  }),
+  createNode[CUSTOM_NODE.CONTAINER]({
+    id: "전형1-전형세부",
+    position: { x: 0, y: 250 },
+    parentId: "전형1-container",
+    data: {
+      style: { width: 318 },
+      children: <ProcessDetail isStart />,
+    },
   }),
 ];
 
@@ -78,4 +105,4 @@ const focusTestNodes: (FocusTargetNode | Node)[] = [
   }),
 ];
 
-export const initialNodes: Node[] = [...layerTestNodes, ...focusTestNodes];
+export const initialNodes: Node[] = [...mainNodes, ...focusTestNodes];

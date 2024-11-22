@@ -71,7 +71,7 @@ const CanvasInner = () => {
         minZoom={0.2}
         maxZoom={10}
         fitView
-        fitViewOptions={{ nodes: [{ id: "layer-test-frame" }], padding: 0.2 }}
+        fitViewOptions={{ nodes: [{ id: "main-frame" }], padding: 0.2 }}
         {...boundaryProps}
         {...wheelProps}
         proOptions={{ hideAttribution: true }}
