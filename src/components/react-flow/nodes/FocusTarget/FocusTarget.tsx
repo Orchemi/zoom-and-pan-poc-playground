@@ -1,3 +1,4 @@
+import { CUSTOM_NODE } from "@/components/react-flow/nodes/node.type";
 import { Node, NodeProps, useReactFlow } from "@xyflow/react";
 import { CSSProperties, useCallback } from "react";
 import { twMerge } from "tailwind-merge";
@@ -5,7 +6,10 @@ import { twMerge } from "tailwind-merge";
 export const FOCUS_TARGET_WIDTH = 100;
 export const FOCUS_TARGET_HEIGHT = 100;
 
-export type FocusTargetNode = Node<FocusTargetData, "focus-target">;
+export type FocusTargetNode = Node<
+  FocusTargetData,
+  typeof CUSTOM_NODE.FOCUS_TARGET
+>;
 
 export type FocusTargetData = {
   source: string;
@@ -21,9 +25,12 @@ const style = {
 export function FocusTarget({ data }: NodeProps<FocusTargetNode>) {
   const { fitView } = useReactFlow();
 
-  const moveToFocusTarget = useCallback((id: string) => {
-    fitView({ nodes: [{ id }], duration: 200, padding: 2 });
-  }, []);
+  const moveToFocusTarget = useCallback(
+    (id: string) => {
+      fitView({ nodes: [{ id }], duration: 200, padding: 2 });
+    },
+    [fitView],
+  );
 
   return (
     <div

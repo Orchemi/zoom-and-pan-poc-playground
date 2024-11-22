@@ -1,8 +1,9 @@
+import { CUSTOM_NODE } from "@/components/react-flow/nodes/node.type";
 import { Node, NodeProps } from "@xyflow/react";
 import React, { CSSProperties } from "react";
 import { twMerge } from "tailwind-merge";
 
-export type ContainerNode = Node<ContainerData, "container">;
+export type ContainerNode = Node<ContainerData, typeof CUSTOM_NODE.CONTAINER>;
 
 export type ContainerData = {
   label?: string;

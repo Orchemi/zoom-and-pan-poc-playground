@@ -1,11 +1,12 @@
+import { CUSTOM_NODE } from "@/components/react-flow/nodes/node.type";
 import { Node, NodeProps } from "@xyflow/react";
 import { CSSProperties } from "react";
 import { twMerge } from "tailwind-merge";
 
-export type FrameNode = Node<FrameData, "frame">;
+export type FrameNode = Node<FrameData, typeof CUSTOM_NODE.FRAME>;
 
 export type FrameData = {
-  source: string;
+  source?: string;
   style?: CSSProperties;
 };
 
